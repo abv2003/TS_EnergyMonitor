@@ -229,8 +229,8 @@ void calcVI(unsigned int crossings, unsigned int timeout)
     //-----------------------------------------------------------------------------
     // A) Read in raw voltage and current samples
     //-----------------------------------------------------------------------------
-    sampleV = ads.readADC_Differential_0_1();                 //Read in raw current signal
-    sampleI = ads.readADC_Differential_2_3();                 //Read in raw voltage signal
+    sampleV = ads.readADC_Differential_0_1();                 //Read in raw voltage signal
+    sampleI = ads.readADC_Differential_2_3();                 //Read in raw current signal
     
 
     //-----------------------------------------------------------------------------
@@ -318,7 +318,7 @@ double calcIrms(unsigned int Number_of_Samples)
   float multiplier = 0.125F;    /* ADS1115 @ +/- 4.096V gain (16-bit results) */
   for (unsigned int n = 0; n < Number_of_Samples; n++)
   {
-    sampleI = ads.readADC_Differential_0_1();
+    sampleI = ads.readADC_Differential_2_3();
 
     // Digital low pass filter extracts the 2.5 V or 1.65 V dc offset, 
   //  then subtract this - signal is now centered on 0 counts.
